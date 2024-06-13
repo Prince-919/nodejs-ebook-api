@@ -5,11 +5,7 @@ import userRoute from "./user/userRoute";
 
 const app = express();
 
-app.get("/", (req, res, next) => {
-  res.json({
-    message: "Welcome to ebook apis",
-  });
-});
+app.use(express.json());
 
 // routes
 app.use("/api/users", userRoute);
