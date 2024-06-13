@@ -1,16 +1,18 @@
 import express from "express";
 import createHttpError from "http-errors";
 import globalErrorHandler from "./middlewares/globalErrorHandler";
+import userRoute from "./user/userRoute";
 
 const app = express();
 
 app.get("/", (req, res, next) => {
-  const error = createHttpError(400, "something went wrong!.");
-  throw error;
   res.json({
     message: "Welcome to ebook apis",
   });
 });
+
+// routes
+app.use("/api/users", userRoute);
 
 // Global error handler
 
